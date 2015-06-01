@@ -1,86 +1,123 @@
 html, body {
-	font-family: 'Roboto', sans-serif;
-	height: 100%;
-	width: 100%;
-	text-align: center;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
 }
 
-.options span {
-	display: inline-block;
-	width: 80px;
-	height: 80px;
-	margin: 10px;
-	background: #222;
-	color: white;
-	font-size: 4em;
-	border-radius: 4px;
-	cursor:pointer;
+.btn, .btn span{
+  border-radius: 4px;
+  font-size: 3em;
+  cursor: pointer;
 }
 
+.options span{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  margin: 20px;
+  background: #222;
+  color: white;
+}
+
+
+.select-time-per .btn {
+  height: 80px;
+  width: 80px;
+  line-height: 80px;
+  color: white;
+}
+
+#time-per {
+  color: black;
+  cursor: default;
+  margin-left: 80px;
+  display: inline-block;
+}
+
+.next {
+  background: green;
+  display: inline-block;
+}
+.up, .down {
+  background: #222;
+  margin: 0px auto;
+
+}
 .set-colors .player-color {
-	color: white;
-	height: 56px;
-	padding: 10px;
-	width: 160px;
-	border-radius: 4px;
-	margin: 10px auto;
-	font-size: 2.5em;
-	cursor:pointer;
+  color: white;
+  height: 60px;
+  padding: 15px;
+  width: 300px;
+  border-radius: 4px;
+  margin: 10px auto;
+  font-size: 3em;
+  cursor:pointer;
 }
 
-.start-btn {
-	padding: 18px;
-	height: 60px;
-	width: 200px;
-	font-size: 3em;
-	color: white;
-	background: #222;
-	border-radius: 4px;
-	margin: 60px auto 0 auto;
-	cursor:pointer;
+.start {
+  padding: 18px;
+  height: 60px;
+  width: 200px;
+  color: white;
+  background: #222;
+  margin: 60px auto 0 auto;
 }
-.start-btn[disabled=disabled] {
-	background: #ddd;
+
+.start [disabled=disabled] {
+  background: #ddd;
+}
+
+.pause {
+  color: white;
+  background: #222;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  width: 100px;
+  line-height: 100px;
+  border-radius: 50%;
 }
 
 .main-btn {
-	color: white;
-	font-size: 2.6em;
-	border-radius: 50%;
-	height: 100%;
-	max-height: 400px;
-	width: 100%;
-	max-width: 400px;
-	cursor: pointer;
+  color: white;
+  font-size: 3em;
+  border-radius: 50%;
+  height: 100%;
+  max-height: 600px;
+  width: 100%;
+  max-width: 600px;
+  cursor: pointer;
 }
 
 #time {
-	margin-top: 100px;
-	margin-bottom: 0px;
+  margin-top: 160px;
+  margin-bottom: 0px;
+  font-size: 3.5em;
 }
-
 .centered {
   margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
 }
-
-
 .red {
-	background: #E10000;
+  background: #E10000;
 }
 .yellow {
-	background: #E1A400;
+  background: #E1A400;
 }
 .blue {
-	background: #0F1D9C;
+  background: #0F1D9C;
 }
 .green {
-	background: #00B400;
+  background: #00B400;
 }
 .brown {
-	background: #663300;
+  background: #663300;
 }
 .orange {
-	background: #D26500;
+  background: #D26500;
 }
