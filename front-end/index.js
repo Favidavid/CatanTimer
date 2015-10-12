@@ -16,13 +16,13 @@ $(document).ready(function() {
     num_players = parseInt($(this).data("id"));
     $(".select-num-players").hide();
     $(".select-time-per").show();
-    //var clone = $(".player-color").clone();
+    var clone = $(".player-color").clone();
     for (var i = 0; i < num_players; i++) {
-      var cloneclone = $('<div class="player-color"></div>');
+      var cloneclone = clone.clone();
 
       player_colors.push(COLORS[i]);
       cloneclone.addClass(COLORS[i]);
-      cloneclone.attr("id", i);
+      cloneclone.data("id", i);
       cloneclone.text("Player "+(i+1));
 
       cloneclone.show();
@@ -47,29 +47,26 @@ $(document).ready(function() {
   
   $(document).on("click", ".player-color", function(e) {
     var that = $(e.currentTarget);
-    var nextColor;
     for (var i in COLORS) {
       if (that.hasClass(COLORS[i])) {
-        nextColor = getNextColor(COLORS[i]);
-        var id = that.attr("id");
-        player_colors[id] = nextColor;
+        var nextColor = getNextColor(COLORS[i]);
+        player_colors[that.data("id")] = nextColor;
         that.removeClass(COLORS[i]);
         that.addClass(nextColor);
         break;
       }
     }
-    console.log($(".player-color"));
-    $(".player-color").removeClass("dup-color");
-    console.log($(".player-color"));
     // Check if Valid assignment
-
-    console.log(player_colors);
-    var dups = validateColors(player_colors);
-
-    if (!dups) {
-      $("#start").attr("disabled", false);
-      $("#start").removeClass("disabled");
+    var seen = {};
+    for (var i in player_colors) {
+      var color = player_colors[i];
+      if (color in seen) {
+        $("#start").attr("disabled", true);
+        return
+      }
+      seen[color] = true;
     }
+    $("#start").attr("disabled", false);
   });
   $("#start").click(function() {
     if (!$(this).attr("disabled")) {
@@ -80,25 +77,7 @@ $(document).ready(function() {
   });
   var main_interval = null;
 
-  function validateColors(player_colors) {
-    var seen = {};
-    var hasDups = false;
-    for (var i = 0 ; i < player_colors.length; i++) {
-      var color = player_colors[i];
-      if (color in seen) {
-        hasDups = true;
-        $("#start").attr("disabled", true);
-        $("#start").addClass("disabled");
-        console.log(seen);
-        console.log(i);
-        $("#"+i).addClass("dup-color");
-        $("#"+seen[color]).addClass("dup-color");
-      } else {
-        seen[color] = i;
-      }
-    }
-    return dups;
-  }
+
 
   var startGame = function() {
     $(".main-btn").addClass(player_colors[0]);
@@ -143,13 +122,13 @@ $(document).ready(function() {
     if (paused == false) {
       paused = true;
       console.log("pause");
-      $("#pause").html('<i class="fa fa-play"></i>');
+      $("#pause").text('\u25ba');
       clearInterval(main_interval);
     }
     else {
       paused = false;
       console.log("play");
-      $("#pause").html('<i class="fa fa-pause"></i>');
+      $("#pause").text('\u275a \u275a');
       main_interval = setInterval(tick, 1000);
     }
   });
