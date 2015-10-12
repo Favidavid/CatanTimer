@@ -3,16 +3,15 @@ html, body {
   height: 100%;
   width: 100%;
   text-align: center;
-  overflow: hidden;
 }
 
-.btn, .btn span{
+.btn, .btn span {
   border-radius: 4px;
   font-size: 3em;
   cursor: pointer;
 }
 
-.options span{
+.options span {
   display: inline-block;
   width: 200px;
   height: 200px;
@@ -25,9 +24,13 @@ html, body {
 
 .select-time-per .btn {
   height: 80px;
-  width: 80px;
   line-height: 80px;
   color: white;
+  vertical-align: middle;
+}
+
+#timer-setting .btn {
+  width: 200px;
 }
 
 #time-per {
@@ -35,26 +38,45 @@ html, body {
   cursor: default;
   margin-left: 80px;
   display: inline-block;
+  font-size: 144px;
+  line-height: 200px;
+  vertical-align: middle;
+  height: 200px;
+  text-align: center;
 }
 
 .next {
   background: green;
   display: inline-block;
+  width: 200px;
+  margin-top: 20px;
+  padding: 5px;
 }
 .up, .down {
   background: #222;
   margin: 0px auto;
 
 }
-.set-colors .player-color {
+.set-colors .player-color-container > .player-color {
   color: white;
-  height: 60px;
-  padding: 15px;
-  width: 300px;
+  height: 100%;
+  width: 20%;
   border-radius: 4px;
-  margin: 10px auto;
   font-size: 3em;
   cursor:pointer;
+  display: inline-block;
+  margin: 0 auto;
+  line-height: 100px;
+  vertical-align: middle;
+}
+
+.player-color-container {
+  text-align: center;
+  height: 100px;
+  margin: 10px 0px;
+  width: 100%;
+  vertical-align: middle;
+  line-height: 100px;
 }
 
 .start {
@@ -68,6 +90,7 @@ html, body {
 
 .start [disabled=disabled] {
   background: #ddd;
+  cursor: not-allowed;
 }
 
 .pause {
@@ -120,4 +143,23 @@ html, body {
 }
 .orange {
   background: #D26500;
+}
+
+.dup-color-x {
+  color: red;
+}
+
+.dup-color > span {
+  position: relative;
+  left: 35%;
+  display: block;
+  float: left;
+}
+.btn, .no-select {
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 }
